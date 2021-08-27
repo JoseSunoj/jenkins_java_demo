@@ -1,17 +1,26 @@
 package jose.sunoj;
-import javax.swing.JOptionPane;
+import java.util.Arrays;
+
 public class Main {
 
 	public static void main(String[] args) {
-		String name = JOptionPane.showInputDialog("Enter a Name.");
-		JOptionPane.showMessageDialog(null, "Hello" + name);
-		
-		int age = Integer.parseInt(JOptionPane.showInputDialog("Enter your age."));
-		JOptionPane.showMessageDialog(null, "you are " + age + " years old.");
-		
-		double height = Double.parseDouble(JOptionPane.showInputDialog("Enter your height."));
-		JOptionPane.showMessageDialog(null, "you are " + height + " cm tall.");
+		System.out.println(isAnagrams("action man", "cannot aim"));
+		System.out.println(isAnagrams("action man", "cannotaim"));
+		System.out.println(isAnagrams("the eyes", "they see"));
+		System.out.println(isAnagrams("the eyes", "they sea"));
 
 	}
+	
+	private static boolean isAnagrams(String s, String t) {
+		if (s.length() != t.length()) return false;
+		char[] ch1 = s.toCharArray();
+		char[] ch2 = t.toCharArray();
+		Arrays.sort(ch1);
+		Arrays.sort(ch2);
+		return Arrays.equals(ch1, ch2);
+
+	}	
+
+}
 
 }
